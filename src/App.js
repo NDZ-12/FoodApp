@@ -1,5 +1,4 @@
-import logo from "./logo.svg";
-import "./App.css";
+import './App.css';
 import RestaurantCard from "./RestaurantCard";
 
 const Header = () => {
@@ -22,6 +21,7 @@ const Header = () => {
     </div>
   );
 };
+
 const Body =() =>
 {
  return (
