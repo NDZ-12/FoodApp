@@ -1,7 +1,9 @@
 import React from "react";
 import "./RestaurantCard.css";
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
+
+    console.log(props);
   return (
     <div className="res-card">
     
@@ -10,8 +12,8 @@ const RestaurantCard = () => {
         alt="res-logo"
         src="https://www.madhuseverydayindian.com/wp-content/uploads/2020/10/khichdi-instant-pot-1024x1024.jpg"></img>
       
-      <h3> MDH Foods</h3>
-      <h4>South food ,breakfast, lunch</h4>
+      <h3> {props.resName}</h3>
+      <h4>{props.cuisine}</h4>
       <h4>4.4 stars</h4>
       <h4>38 minutes</h4>
      
