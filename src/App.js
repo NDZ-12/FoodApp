@@ -28,7 +28,10 @@ const Body =() =>
  <div className="body">
   <div className="search">Search</div>
   <div className="res-conatiner">
-    <RestaurantCard />
+    <RestaurantCard resName="MDH Foods" cuisine="North,south foods"/>
+    <RestaurantCard  resName="SRK Foods" cuisine="Fastfood" />
+    
+
   </div>
  </div>
 
