@@ -29,8 +29,10 @@ const Body =() =>
   <div className="search">Search</div>
   <div className="res-conatiner">
    {restrautList.map((x)=>
+   
+   
     {
-      return <RestaurantCard key={x.data.id} {...x.data} />
+     return <RestaurantCard key={x.data.id} {...x.data} />
     }
     
     
