@@ -1,5 +1,5 @@
 import './App.css';
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { restrautList } from "./RestaurantCard";
 
 const Header = () => {
   return (
@@ -28,9 +28,15 @@ const Body =() =>
  <div className="body">
   <div className="search">Search</div>
   <div className="res-conatiner">
-    <RestaurantCard resName="MDH Foods" cuisine="North,south foods"/>
-    <RestaurantCard  resName="SRK Foods" cuisine="Fastfood" />
+   {restrautList.map((x)=>
+   
+   
+    {
+     return <RestaurantCard key={x.data.id} {...x.data} />
+    }
     
+    
+    )}
 
   </div>
  </div>
