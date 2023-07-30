@@ -65,6 +65,13 @@ const Body =() =>
         >
           Search
         </button>
+        <br/>
+        <button className="reset-btn" onClick={() => {
+         
+         window.location.reload();
+        }}>
+          
+           Reset</button>
       </div> 
     
   
