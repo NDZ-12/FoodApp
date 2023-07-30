@@ -1,35 +1,48 @@
-import React ,{useState}from 'react'
+import React ,{useEffect, useState}from 'react'
 import RestaurantCard from './RestaurantCard'
-import { restrautList } from '../utils/mockData'
 
-
-function filterData(searchText, restaurants) {
-  const filterData = restaurants.filter((restaurant) =>
-    restaurant.data.name.includes(searchText)
-  );
-
-  return filterData;
-}
-
-
-
-
-
-
+import Shimmer from './Shimmer';
 const Body =() =>
 {
 
-  const [restaurants, setRestaurants] = useState(restrautList);
-  const [searchText, setSearchText] = useState("");
+  const [restaurants, setRestaurants] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+   const [searchText, setSearchText] = useState("");
 
-  function handleReset()
+  useEffect (()=>{
+   fetchData();
+  },[])
+
+  
+
+  const fetchData= async() =>
   {
-   setRestaurants(restrautList);
-   setSearchText('');
+    try {
+    let data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
+    console.log(data); 
+    console.log("Fetch Data sucessfully .......");
+    const json = await data.json();
+    console.log(json);
+    setRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+    } 
+    catch(error)
+    {
+      console.error("Error fetching data :", error)
+    }
+
   }
- return (
- <div className="body">
-  <div className="search-container">
+  if (!restaurants) return null;
+ 
+  console.log("render body");
+  
+ return restaurants.length=== 0 ?(
+  <Shimmer/>
+ ):
+ (
+<>
+   <div className="search-container">
         <input
           type="text"
           className="search-input"
@@ -43,34 +56,36 @@ const Body =() =>
           className="search-btn"
           onClick={() => {
             //need to filter the data
-            const data = filterData(searchText, restaurants);
-            // update the state - restaurants
-            setRestaurants(data);
+            const filteredRestaurant = restaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+
+              setFilteredRestaurant(filteredRestaurant);
           }}
         >
           Search
         </button>
-        
-        <button className="reset-btn" onClick={handleReset}>
-          Reset
-        </button>
-      </div>
+        <br/>
+        <button className="reset-btn" onClick={() => {
+         
+         window.location.reload();
+        }}>
+          
+           Reset</button>
+      </div> 
     
   
   <div className="res-conatiner">
-   {restaurants.map((x)=>
-   
-   
+   {filteredRestaurant.map((x)=>
     {
-     return <RestaurantCard key={x.data.id} {...x.data} />
+     return <RestaurantCard key={x?.info?.id} {...x?.info} />
     }
-    
     
     )}
 
   </div>
- </div>
 
+  </>
  )
 
 }
