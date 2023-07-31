@@ -6,7 +6,8 @@ const Body =() =>
 {
 
   const [restaurants, setRestaurants] = useState([]);
-  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const[filterdata, setFileterData]=useState([]);
+  
    const [searchText, setSearchText] = useState("");
 
   useEffect (()=>{
@@ -24,7 +25,7 @@ const Body =() =>
     const json = await data.json();
     console.log(json);
     setRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFileterData(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
     } 
     catch(error)
@@ -41,8 +42,10 @@ const Body =() =>
   <Shimmer/>
  ):
  (
-<>
+
+<div className='body'>
    <div className="search-container">
+    <div className='search'>
         <input
           type="text"
           className="search-input"
@@ -56,27 +59,30 @@ const Body =() =>
           className="search-btn"
           onClick={() => {
             //need to filter the data
-            const filteredRestaurant = restaurants.filter((res) =>
+            const filterdata = restaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
 
-              setFilteredRestaurant(filteredRestaurant);
+             setFileterData(filterdata);
           }}
         >
           Search
         </button>
-        <br/>
-        <button className="reset-btn" onClick={() => {
-         
-         window.location.reload();
-        }}>
-          
-           Reset</button>
+       
+        
+        <button className='fiter-btn' onClick={()=>{const avgFilterData =restaurants.filter(
+          (res) =>res.info.avgRating >4); 
+          setFileterData(avgFilterData.sort());
+          }}> Avg Data 
+
+        </button>
+        </div>
+        
       </div> 
     
   
   <div className="res-conatiner">
-   {filteredRestaurant.map((x)=>
+   {filterdata.map((x)=>
     {
      return <RestaurantCard key={x?.info?.id} {...x?.info} />
     }
@@ -85,7 +91,7 @@ const Body =() =>
 
   </div>
 
-  </>
+  </div>
  )
 
 }

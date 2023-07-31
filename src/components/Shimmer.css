@@ -1,0 +1,10 @@
+.shimmer-conatiner {
+display: flex;
+flex-wrap: wrap;
+}
+.shimmer-cards {
+    margin: 20px;
+    width:200px;
+    height: 400px;
+    background-color:lightgrey;
+}

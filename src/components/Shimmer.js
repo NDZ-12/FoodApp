@@ -1,5 +1,22 @@
+import './Shimmer.css';
+
 const Shimmer = () => {
-    return <h1>Shimmer UI Loading.........</h1>;
-  };
-  
-  export default Shimmer;
+  return (
+    <div className="shimmer-conatiner">
+      <div className="shimmer-cards"></div>
+      <div className="shimmer-cards"></div>
+      <div className="shimmer-cards"></div>
+      <div className="shimmer-cards"></div>
+      <div className="shimmer-cards"></div>
+      <div className="shimmer-cards"></div>
+      <div className="shimmer-cards"></div>
+      <div className="shimmer-cards"></div>
+      <div className="shimmer-cards"></div>
+      <div className="shimmer-cards"></div>
+      <div className="shimmer-cards"></div>
+      <div className="shimmer-cards"></div>
+    </div>
+  );
+};
+
+export default Shimmer;
