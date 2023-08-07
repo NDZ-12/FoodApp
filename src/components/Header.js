@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import { CDN_LOGO } from '../utils/constants'
+import { Link } from 'react-router-dom';
+
 const Header = () => {
 
   const[loginbtnName,setloginbtnName]=useState('Login');
@@ -13,17 +15,18 @@ const Header = () => {
             />
           </div>
           <div className="nav-items">
-            <ul>
-              <li>Home</li>
-              <li>About</li>
-              <li>Contact us</li>
-              <li>Cart</li>
+           <ul>
+             <li> <Link to="/" >Home</Link></li>
+             <li><Link to="/about" >About</Link></li> 
+             <li><Link to="/contact" >Contact us</Link></li> 
+             <li><Link to="/" >Cart</Link></li>
+
               <button className='Login' onClick={()=>{
               loginbtnName==='Login'
               ? setloginbtnName('Logout')
               :setloginbtnName('Login');
               }}>{loginbtnName}</button>
-            </ul>
+                        </ul>   
           </div>
         </div>
       );
