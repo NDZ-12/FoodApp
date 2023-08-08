@@ -9,6 +9,7 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import About from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import Error from './components/ErrorPage';
+import RestaurantMenu from './components/RestaurantMenu';
 const approute =createBrowserRouter([
   {
     path :"/",
@@ -25,6 +26,10 @@ const approute =createBrowserRouter([
       {
         path:"/contact",
         element:<ContactUs />,
+      },
+      {
+        path:"/restuarants/:resId",
+        element:<RestaurantMenu />,
       },
     ],
     errorElement:<Error />,

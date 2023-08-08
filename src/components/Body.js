@@ -16,10 +16,11 @@ const Body =() =>
 
   
 
+
   const fetchData= async() =>
   {
     try {
-    let data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
+    let data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9974533&lng=73.78980229999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     console.log(data); 
     console.log("Fetch Data sucessfully .......");
     const json = await data.json();
