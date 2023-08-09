@@ -9,7 +9,7 @@ const RestaurantCard = (props) => {
  const {name ,cloudinaryImageId,cuisines,avgRating}=props;
 
   return (
-    <div className="res-card" onclick={onclick}>
+    <div className="res-card">
     <img
         src={CDN_IMG+cloudinaryImageId}
 
