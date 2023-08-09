@@ -9,7 +9,7 @@ const RestaurantCard = (props) => {
  const {name ,cloudinaryImageId,cuisines,avgRating}=props;
 
   return (
-    <div className="res-card">
+    <div className="res-card" style={{ cursor: "pointer" }}>
     <img
         src={CDN_IMG+cloudinaryImageId}
 
