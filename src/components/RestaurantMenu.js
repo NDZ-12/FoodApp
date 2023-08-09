@@ -26,7 +26,7 @@ const {resId}=useParams();
         };
         console.log(fetchMenu);
         fetchMenu();
-    },[]);
+    },[resId]);
 
     if (restInfo===null) return <Shimmer/>
     
