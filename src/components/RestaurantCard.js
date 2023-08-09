@@ -2,13 +2,14 @@ import React from "react";
 import "./RestaurantCard.css";
 import { CDN_IMG } from "../utils/constants";
 
+
 const RestaurantCard = (props) => {
 
   console.log (props)
  const {name ,cloudinaryImageId,cuisines,avgRating}=props;
 
   return (
-    <div className="res-card">
+    <div className="res-card" onclick={onclick}>
     <img
         src={CDN_IMG+cloudinaryImageId}
 
