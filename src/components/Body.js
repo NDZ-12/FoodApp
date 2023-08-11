@@ -67,9 +67,7 @@ const Body = () => {
 
               setFileterData(filterdata);
             }}
-          >
-            Search
-          </button>
+          ></button>
 
           <button
             className="fiter-btn"
