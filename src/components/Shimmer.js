@@ -2,19 +2,19 @@ import "./Shimmer.css";
 
 const Shimmer = () => {
   return (
-    <div className="shimmer-conatiner">
-      <div className="shimmer-cards"></div>
-      <div className="shimmer-cards"></div>
-      <div className="shimmer-cards"></div>
-      <div className="shimmer-cards"></div>
-      <div className="shimmer-cards"></div>
-      <div className="shimmer-cards"></div>
-      <div className="shimmer-cards"></div>
-      <div className="shimmer-cards"></div>
-      <div className="shimmer-cards"></div>
-      <div className="shimmer-cards"></div>
-      <div className="shimmer-cards"></div>
-      <div className="shimmer-cards"></div>
+    <div className="flex flex-wrap">
+      <div className="w-{200px} h-{400px} bg-gray-400"></div>
+      <div className="w-{200px} h-{400px} bg-gray-400"></div>
+      <div className="w-{200px} h-{400px} bg-gray-400"></div>
+      <div className="w-{200px} h-{400px} bg-gray-400"></div>
+      <div className="w-{200px} h-{400px} bg-gray-400"></div>
+      <div className="w-{200px} h-{400px} bg-gray-400"></div>
+      <div className="w-{200px} h-{400px} bg-gray-400"></div>
+      <div className="w-{200px} h-{400px} bg-gray-400"></div>
+      <div className="w-{200px} h-{400px} bg-gray-400"></div>
+      <div className="w-{200px} h-{400px} bg-gray-400"></div>
+      <div className="w-{200px} h-{400px} bg-gray-400"></div>
+      <div className="w-{200px} h-{400px} bg-gray-400"></div>
     </div>
   );
 };

@@ -46,11 +46,11 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="search-container">
+      <div className="m-4 p-4 bg-lime-200">
         <div className="search">
           <input
             type="text"
-            className="search-input"
+            className="search-input border border-solid border-blue-50 hover:bg-emerald-300"
             placeholder="Search"
             value={searchText}
             onChange={(e) => {
@@ -58,7 +58,7 @@ const Body = () => {
             }}
           />
           <button
-            className="search-btn"
+            className="bg-lime-400 px-4 mx-4 hover:bg-green-900"
             onClick={() => {
               //need to filter the data
               const filterdata = restaurants.filter((res) =>
@@ -67,10 +67,12 @@ const Body = () => {
 
               setFileterData(filterdata);
             }}
-          ></button>
+          >
+            Search
+          </button>
 
           <button
-            className="fiter-btn"
+            className="bg-lime-400 px-4 mx-4 hover:bg-green-900"
             onClick={() => {
               const avgFilterData = restaurants.filter(
                 (res) => res.info.avgRating > 4
@@ -79,12 +81,12 @@ const Body = () => {
             }}
           >
             {" "}
-            Avg Data
+            Avg Data (more than 4+ rating )
           </button>
         </div>
       </div>
 
-      <div className="res-conatiner">
+      <div className="flex flex-wrap ">
         {filterdata.map((x) => {
           return (
             <Link key={x.info.id} to={"/restuarants/" + x.info.id}>
