@@ -23,4 +23,17 @@ const RestaurantCard = (props) => {
   );
 };
 
+export const with5KRestaurantcard = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-cyan-900 text-white m-2 p-2 rounded-lg">
+          Top rating
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurantCard;

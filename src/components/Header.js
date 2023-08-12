@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { CDN_LOGO } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import UserContext from "../utils/UserContext";
 const Header = () => {
   const onlineStatus = useOnlineStatus();
+  const { loggedInUser } = useContext(UserContext);
 
   const [loginbtnName, setloginbtnName] = useState("Login");
   return (
@@ -34,6 +35,7 @@ const Header = () => {
           <li className="p-4 hover:bg-amber-700">
             <Link to="/grocery">Grocery</Link>
           </li>
+          <li className="p-4 font-extrabold">{loggedInUser}</li>
 
           <button
             className="p-4 hover:bg-amber-700 transition delay-700 duration-300 ease-in-out"
