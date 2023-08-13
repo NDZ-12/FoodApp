@@ -21,10 +21,9 @@ const Body = () => {
       let data = await fetch(
         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9974533&lng=73.78980229999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
-      console.log(data);
-      console.log("Fetch Data sucessfully .......");
+
       const json = await data.json();
-      console.log(json);
+
       setRestaurants(
         json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
@@ -39,7 +38,7 @@ const Body = () => {
   };
 
   const onlineStatus = useOnlineStatus();
-  console.log(onlineStatus);
+
   if (onlineStatus === false) {
     return <h1>Please check your Internet connection Status </h1>;
   }
@@ -90,7 +89,6 @@ const Body = () => {
 
       <div className="flex flex-wrap ">
         {filterdata.map((x) => {
-          // totalRatingsString ="5K+"
           return (
             <Link key={x.info.id} to={"/restuarants/" + x.info.id}>
               {x.info.totalRatingsString === "5K+" ||

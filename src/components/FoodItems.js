@@ -1,7 +1,13 @@
 import React from "react";
 import { CDN_IMG } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const FoodItems = ({ items }) => {
+  const dispatch = useDispatch();
+  const handleclick = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div>
       {items.map((item) => (
@@ -18,6 +24,14 @@ const FoodItems = ({ items }) => {
               {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
             </span>
             <p>{item.card.info.description}</p>
+            <div className="p-2 m-2">
+              <button
+                className="bg-amber-500 text-2xl hover:bg-orange-600 font-bold "
+                onClick={() => handleclick(item)}
+              >
+                Add Cart+
+              </button>
+            </div>
           </div>
 
           <div className="w-3/12 p-4">
