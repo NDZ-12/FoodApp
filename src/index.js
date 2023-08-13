@@ -10,7 +10,7 @@ import About from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/ErrorPage";
 import RestaurantMenu from "./components/RestaurantMenu";
-
+import Cart from "./components/Cart";
 const Grocery = lazy(() => import("./components/Grocery"));
 const approute = createBrowserRouter([
   {
@@ -37,7 +37,10 @@ const approute = createBrowserRouter([
           </Suspense>
         ),
       },
-
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
       {
         path: "/restuarants/:resId",
         element: <RestaurantMenu />,

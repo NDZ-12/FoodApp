@@ -3,11 +3,13 @@ import { CDN_LOGO } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 const Header = () => {
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext);
 
   const [loginbtnName, setloginbtnName] = useState("Login");
+  const cartItem = useSelector((store) => store.cart.items);
   return (
     <div className="flex justify-between bg-orange-200 mb-2">
       <div>
@@ -34,6 +36,9 @@ const Header = () => {
           </li>
           <li className="p-4 hover:bg-amber-700">
             <Link to="/grocery">Grocery</Link>
+          </li>
+          <li className="p-4 hover:bg-amber-700">
+            <Link to="/cart">Cart -({cartItem.length}) </Link>
           </li>
           <li className="p-4 font-extrabold">{loggedInUser}</li>
 

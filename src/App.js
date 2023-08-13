@@ -4,7 +4,8 @@ import "./App.css";
 import Header from "./components/Header";
 import UserContext from "./utils/UserContext";
 import { Outlet } from "react-router-dom";
-
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 const AppLayout = () => {
   const [userName, setuserName] = useState();
   useEffect(() => {
@@ -16,13 +17,15 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <div className="app">
-      <UserContext.Provider value={{ loggedInUser: userName }}>
-        <Header />
-      </UserContext.Provider>
+    <Provider store={appStore}>
+      <div className="app">
+        <UserContext.Provider value={{ loggedInUser: userName }}>
+          <Header />
+        </UserContext.Provider>
 
-      <Outlet />
-    </div>
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 

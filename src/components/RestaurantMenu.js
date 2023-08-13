@@ -13,16 +13,12 @@ const RestaurantMenu = () => {
   const { name, cuisines, costForTwoMessage } =
     restInfo.cards[0].card.card.info;
 
-  // const { itemCards } =
-  //   restInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card;
-
   const filteritemCard =
     restInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log(filteritemCard);
 
   return (
     <div className="text-center">
