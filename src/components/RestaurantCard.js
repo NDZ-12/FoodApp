@@ -1,5 +1,5 @@
 import React from "react";
-import "./RestaurantCard.css";
+
 import { CDN_IMG } from "../utils/constants";
 
 const RestaurantCard = (props) => {
