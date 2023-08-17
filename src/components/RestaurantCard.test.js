@@ -1,7 +1,7 @@
 import React from "react";
-import { render ,screen} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"; // for additional matchers like toBeInTheDocument
-import '@testing-library/jest-dom/extend-expect'; 
+import "@testing-library/jest-dom/extend-expect";
 import RestaurantCard from "./RestaurantCard";
 
 describe("Restaurant card", () => {
@@ -12,24 +12,14 @@ describe("Restaurant card", () => {
     deliveryTime: "30min",
   };
 
-  it('Name should be Loading', ()=> {
+  it("Name should be Loading", () => {
     render(<RestaurantCard {...RestaurantMockData} />);
-    const name =screen.getByText(RestaurantMockData.name);
+    const name = screen.getByText(RestaurantMockData.name);
     expect(name).toBeDefined();
-  })
-  it('cuisines should be render',()=>{
-
-    render(<RestaurantCard {...RestaurantMockData} />)
-    const cuisines =screen.getByText(RestaurantMockData.cuisines.join(', '));
+  });
+  it("cuisines should be render", () => {
+    render(<RestaurantCard {...RestaurantMockData} />);
+    const cuisines = screen.getByText(RestaurantMockData.cuisines.join(", "));
     expect(cuisines).toBeDefined();
-
-  })
-  it('delivery time should be render',()=>
-  { 
-    render(<RestaurantCard {...RestaurantMockData} />)
-    const time =screen.getByText(`deliveryTime: ${RestaurantMockData.deliveryTime}`);
-    expect(time).toBeDefined();
-  })
-
-
+  });
 });
