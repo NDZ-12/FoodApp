@@ -3,15 +3,6 @@ import ContactUs from "../components/ContactUs";
 
 test("renders the ContactUs component", () => {
   render(<ContactUs />);
-
-  //   const heading = screen.getByRole(
-  //     "heading",
-  //     { name: "Contact Us Page" },
-  //     { name: "Location : Pune" }
-  //   );
-
-  //   expect(heading).toBeInTheDocument();w
-
   const contactUsHeader = screen.getByText("Contact Us Page");
   const locationInfo = screen.getByText("Location : Pune");
   const nameInput = screen.getByPlaceholderText("name");
@@ -37,4 +28,9 @@ test("render componenst with different approach", () => {
   expect(heading).toBeInTheDocument();
   expect(buttontext).toBeInTheDocument();
   expect(messageplaceholdertext).toBeInTheDocument();
+});
+test("should render two inputplaceholder", () => {
+  render(<ContactUs />);
+  const inputplaceholdertexts = screen.getByPlaceholderText("message");
+  expect(inputplaceholdertexts).toBeInTheDocument();
 });
